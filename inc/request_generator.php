@@ -16,7 +16,7 @@ $params = array(
     "Keywords" => "watch",
     "ResponseGroup" => "Images,ItemAttributes,Offers",
     "Sort" => "salesrank",
-	"ContentType" => "text/html",
+	//"ContentType" => "text/html",
 	"ItemPage" => "2"
 );
 
@@ -46,6 +46,8 @@ $signature = base64_encode(hash_hmac("sha256", $string_to_sign, AWS_API_SECRET_K
 // Generate the signed URL
 $request_url = 'http://'.$endpoint.$uri.'?'.$canonical_query_string.'&Signature='.rawurlencode($signature);
 
-echo "Signed URL: \"".$request_url."\"";
+echo "Signed URL: \"".$request_url."\" \n";
+
+echo "<a href=\"".$request_url."\">Link</a>";
 
 ?>
